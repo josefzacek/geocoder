@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :places, only: [:index, :new, :create]
+
   root 'places#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
