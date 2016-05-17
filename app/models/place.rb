@@ -12,3 +12,5 @@
 #  updated_at  :datetime         not null
 #
 
+class Place < ActiveRecord::Base
+end
