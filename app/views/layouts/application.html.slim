@@ -14,9 +14,11 @@ html lang='en'
       
   body
     .container
-      - if flash[:notice]
-        .alert.alert-info
-          p = flash[:notice]
+      - flash.each do |key, value|
+        div class="alert alert-#{key} fade in"
+          button.close data-dismiss='alert'
+            | &times; 
+          p = value
       
       = yield
       hr
