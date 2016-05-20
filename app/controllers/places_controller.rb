@@ -21,6 +21,20 @@ class PlacesController < ApplicationController
     end
   end
 
+  def edit
+    @place = Place.find(params[:id])
+  end
+
+  def update
+    @place = Place.find(params[:id])
+    if @place.update_attributes(place_params)
+      flash[:success] = 'Place updated'
+      redirect_to action: 'show', id: @place.id
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def place_params
