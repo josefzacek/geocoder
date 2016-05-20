@@ -1,0 +1,25 @@
+h1 Place details
+.row
+  .col-md-6
+    p
+      b Title:
+    p = @place.title
+    
+    p
+      b Description: 
+    p = @place.description
+
+    p
+      b Address: 
+    p = @place.address
+
+    .btn-group    
+      p = link_to 'Home page', root_path, class: 'btn btn-default'
+
+  .col-md-6
+
+    p
+      b Map:
+
+    = content_tag :div, id: "map_canvas", data: {title: @place.title, latitude: @place.latitude, longitude: @place.longitude} do
+
