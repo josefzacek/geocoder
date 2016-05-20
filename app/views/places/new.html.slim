@@ -1,0 +1,16 @@
+.row
+  .col-md-6.col-md-offset-3
+    h1 Add new place
+    = form_for @place do |f|
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+      .form-group
+        = f.label :description
+        = f.text_area :description, class: 'form-control'
+      .form-group
+        = f.label :address
+        = f.text_field :address, class: 'form-control'
+      p
+        = f.submit 'Create place', class: 'btn btn-default'
+    p = link_to 'Back', root_path

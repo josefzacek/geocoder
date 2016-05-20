@@ -1,0 +1,28 @@
+doctype html
+html lang='en'
+  head
+    meta charset='utf-8'
+    meta http-equiv='X-UA-Compatible' content='IE=edge'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+    meta name='keywords' content='template language'
+    meta name='author' content='Josef Zacek'
+    title Rails Records Sorting
+    
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+      
+  body
+    .container
+      - flash.each do |key, value|
+        div class="alert alert-#{key} fade in"
+          button.close data-dismiss='alert'
+            | &times; 
+          p = value
+      
+      = yield
+      hr
+      footer
+        p Created by #{link_to 'josefzacek.com', 'http://josefzacek.com'}
+
+    script src="https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initialize"
