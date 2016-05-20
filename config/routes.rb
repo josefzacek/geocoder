@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :places, only: [:index, :show, :new, :create]
+  resources :places, except: [:destroy]
 
   root 'places#index'
 
