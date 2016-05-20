@@ -15,7 +15,7 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     if @place.save
       flash[:success] = 'New place added'
-      redirect_to root_path
+      redirect_to action: 'show', id: @place.id
     else
       render 'new'
     end
