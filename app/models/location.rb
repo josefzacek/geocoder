@@ -16,4 +16,13 @@
 #
 
 class Location < ActiveRecord::Base
+  geocoded_by :address
+  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed?}
+  
+  def geocoded_by
+    "#{address}, #{city}, #{country}, #{county}, #{postal_code}"
+  end
+
+
+
 end
