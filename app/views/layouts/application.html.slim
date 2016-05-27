@@ -19,6 +19,10 @@ html lang='en'
           button.close data-dismiss='alert'
             | &times; 
           p = value
+
+      p = link_to 'Places', places_path
+
+      p = link_to 'Locations', locations_path
       
       = yield
       hr
