@@ -1,0 +1,12 @@
+h1 Listing Locations
+
+p = link_to 'Add new location', new_location_path, class: 'btn btn-default'
+
+ul.list-group
+  - @locations.each do |location|
+    li.list-group-item
+      = link_to(location.title, location_path(location))
+      '  /
+      = link_to('Edit', edit_location_path(location), class: 'text-warning')
+      '  /
+      = link_to 'Destroy', location, class: 'text-danger',  method: :delete, data: { confirm: 'Are you sure?' }
