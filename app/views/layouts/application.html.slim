@@ -13,16 +13,28 @@ html lang='en'
     = csrf_meta_tags
       
   body
+    nav.navbar.navbar-inverse
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          = link_to 'Geocoder', root_path, class: 'navbar-brand'
+
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li = link_to 'Places', places_path
+            li = link_to 'Locations', locations_path
+
+
     .container
       - flash.each do |key, value|
         div class="alert alert-#{key} fade in"
           button.close data-dismiss='alert'
             | &times; 
           p = value
-
-      p = link_to 'Places', places_path
-
-      p = link_to 'Locations', locations_path
       
       = yield
       hr
